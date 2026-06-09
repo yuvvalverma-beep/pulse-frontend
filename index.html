@@ -102,9 +102,12 @@
     </main>
 
     <script>
+        // 1. Connection Config
         const CLIENT_URL = "https://cmxrqaapissummovnpyh.supabase.co";
         const CLIENT_KEY = "sb_publishable_gbi0gkahScBYXuWrQ4ZfRQ_2LriGifD";
-        const database = supabase.createClient(CLIENT_URL, CLIENT_KEY);
+
+        // 2. Initialize Supabase Client
+        const supabaseClient = supabase.createClient(CLIENT_URL, CLIENT_KEY);
 
         async function syncInterfaceTelemetry() {
             const { data, error } = await database
