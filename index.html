@@ -102,7 +102,7 @@
     </main>
 
     <script>
-        // 1. Connection Config
+    // 1. Connection Config
         const CLIENT_URL = "https://cmxrqaapissummovnpyh.supabase.co";
         const CLIENT_KEY = "sb_publishable_gbi0gkahScBYXuWrQ4ZfRQ_2LriGifD";
 
@@ -110,10 +110,10 @@
         const supabaseClient = supabase.createClient(CLIENT_URL, CLIENT_KEY);
 
         async function syncInterfaceTelemetry() {
-            const { data, error } = await database
+            const { data, error } = await supabaseClient
                 .from('daily_intelligence')
                 .select('*')
-                .order('created_at', { ascending: false })
+                .order('id', { ascending: false })
                 .limit(1);
 
             if (data && data.length > 0) {
